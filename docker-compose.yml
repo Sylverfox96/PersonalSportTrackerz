@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql-db
+  mysql-db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: exemple
+      MYSQL_DATABASE: base_de_donnees
+      MYSQL_USER: utilisateur
+      MYSQL_PASSWORD: motdepasse
+    ports:
+      - "3306:3306"
